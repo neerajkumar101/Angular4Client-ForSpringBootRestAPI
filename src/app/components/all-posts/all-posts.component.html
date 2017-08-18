@@ -1,0 +1,29 @@
+<div class="panel-body">
+  <div class="panel panel-default">
+    <div class="well">
+      <h1>
+        All the Posts:
+      </h1>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped table-bordered table-responsive">
+        <tr>
+          <th>Post Id</th>
+          <th>Post Text</th>
+          <th>Posted By User</th>
+          <th>Post Like Count</th>
+          <th>Post Share Count</th>          
+          <th>Post Shared By</th>
+        </tr>
+        <tr *ngFor="let showPost of post">
+          <td>{{showPost.postId}}</td>
+          <td>{{showPost.postText}}</td>
+          <td>{{showPost.user.name}}</td>
+          <td>{{showPost.likeCount}} likes</td>
+          <td>{{showPost.shareCount}} shares</td>        
+          <td>{{showPost.showPost}}</td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

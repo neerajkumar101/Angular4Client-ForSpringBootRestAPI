@@ -1,0 +1,68 @@
+<div class="well well-sm up-space col-md-6 col-md-offset-3 col-sm-12">
+  <div class="col-md-6 col-md-offset-4 col-sm-6">
+    <h1>
+      Signup!
+    </h1>
+  </div>
+  <div>
+    <div *ngIf="invalidFlag" class="alert alert-danger">
+      Cannot submit the form: Form is Dirty.
+    </div> 
+  </div>
+  <div class="stacked-up-space login-form">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <div>
+            <label class="">Name:<span class="important">*</span> </label>
+            <input name="name" ngModel required minlength="3" #name="ngModel" 
+              class="form-control" forbiddenName="user" 
+              placeholder="Enter Name here: atleast 3 Characters Long">
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="alert alert-danger">
+
+            <div *ngIf="(name.errors.required)">
+              Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength ">
+              Name must be at least 3 characters long.
+            </div>
+            <div *ngIf="name.errors.forbiddenName">
+              Name cannot be User.
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="">Email:<span class="important">*</span> </label>
+          <input name="email" ngModel required #email="ngModel" class="form-control" email
+            placeholder="Enter a valid Email address">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="alert alert-danger">
+              <div *ngIf="email.errors.required">
+                Email is required.
+              </div>
+              <div *ngIf="email.errors.email">
+                Not a well formatted Email.
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="">Address:<span class="important">*</span> </label>
+          <input name="address" ngModel required minlength="5" #address="ngModel" 
+            class="form-control" placeholder="Enter Address here: atleast 5 Characters Long">
+              <div *ngIf="address.invalid && (address.dirty || address.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="address.errors.required">
+                    Address is required.
+                  </div>
+                  <div *ngIf="address.errors.minlength">
+                    Address must be at least 5 characters long.
+                  </div>
+              </div>
+        </div>
+      <button class="btn btn-success">Signin</button>
+     </form>
+  </div>
+  <div style="overflow: auto;"></div>
+</div>

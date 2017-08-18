@@ -1,0 +1,14 @@
+<div class="well well-sm up-space">
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+     <div class="form-group">
+      <input name="postText" ngModel required #postText="ngModel" class="form-control" placeholder="Share whats in your mind...">
+     </div>
+     <button class="btn btn-default">Publish</button>
+    </form>
+    
+    <p>First name value: {{ postText.value }}</p>
+</div>
+<div>
+  <!-- <p ></p> -->
+</div>
